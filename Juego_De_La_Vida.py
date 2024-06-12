@@ -32,6 +32,10 @@ Aquí están las reglas básicas del Juego de la Vida:
 '''
 TODO:
     - [] Como hacer para que el usuario cargue la configuración inicial?
+
+IDEAS: 
+    - [] Crear clases para los objetos del juego
+    - [] Input de usuario para configurar el juego
 '''
 
 # Librerias
