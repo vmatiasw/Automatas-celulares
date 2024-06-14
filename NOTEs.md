@@ -2,12 +2,15 @@
 
 ## Objetivo del proyecto
 
-Ni idea, va, una si.
-En primer lugar el objetivo es crear un juego de la vida lindo.
-Luego quizas un automata lineal conocido.
-Luego podria nvestigar un par de cosas, buscar configuraciones piolas para dejar guardadas. Ver maneras rapidas de poner esas configuraciones...
+Crear:
 
-A partid de ahi hacer algunas variantes de los automatas... y ya ahi se pierde el proyecto en hacer un par de cosas por que si a ver que tal. Por lo que si no surje nada mas, ahi quedare.
+1. Un juego de la vida lindo.
+2. Una interface de usuario para las configuraciones.
+3. Algoritmo genetico de busqueda, graficos,... para encontrar patrones, figuras estaticas, ...
+4. Un automata lineal conocido. Investigar visualmente el avance de sus generaciones,...
+5. Investigar un par de cosas, buscar configuraciones piolas para dejar guardadas. Ver maneras rapidas de poner esas configuraciones...
+
+A partir de ahi hacer algunas variantes de los automatas... y ya ahi se pierde el proyecto en hacer un par de cosas por que si a ver que tal. Por lo que si no surje nada mas, ahi quedare.
 
 ## Sobre el juego de la vida
 
