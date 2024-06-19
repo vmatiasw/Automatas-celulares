@@ -1,6 +1,16 @@
-# Notas e ideas
+# TODO
 
-## Objetivo del proyecto
+TODO:
+    - [] dividir en carpetas por ejemplo los controladores, las vistas y los modelos
+    - [] Como hacer para que el usuario cargue la configuración inicial?
+
+IDEAS:
+    - [] Crear clases para los objetos del juego
+    - [] Input de usuario para configurar el juego
+
+## Mas Notas e ideas
+
+### Objetivo del proyecto
 
 Crear:
 
@@ -12,7 +22,7 @@ Crear:
 
 A partir de ahi hacer algunas variantes de los automatas... y ya ahi se pierde el proyecto en hacer un par de cosas por que si a ver que tal. Por lo que si no surje nada mas, ahi quedare.
 
-## Sobre el juego de la vida
+### Sobre el juego de la vida
 
 _IDEAS:_
 
