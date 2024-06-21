@@ -8,7 +8,6 @@ class GameOfLife:
         self.odd_gen_matrix = np.zeros((MATRIX_Y, MATRIX_X))
         self.matrix_x = MATRIX_X
         self.matrix_y = MATRIX_Y
-        self.cell_size = MATRIX_X // MATRIX_X
         self.initialize_matrices()
 
     def initialize_matrices(self):
