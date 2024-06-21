@@ -1,8 +1,9 @@
 # TODO
 
 TODO:
-    - [] dividir en carpetas por ejemplo los controladores, las vistas y los modelos
+    - [x] dividir en carpetas por ejemplo los controladores, las vistas y los modelos
     - [] Como hacer para que el usuario cargue la configuración inicial?
+    - [] Paralelizar
 
 IDEAS:
     - [] Crear clases para los objetos del juego
