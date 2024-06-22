@@ -26,7 +26,6 @@ class GameOfLife:
         np.random.seed(seed)
         self.even_gen_matrix = np.random.randint(
             0, 2, size=(self.matrix_y, self.matrix_x))
-        print(self.even_gen_matrix)
 
     def live_neighbors(self, matrix, x, y):
         '''
