@@ -41,13 +41,13 @@ class GameOfLife:
 
     def put_cell(self, x, y):
         '''
-        Retorna el estado de la celda en la generación pasada y la actual.
+        Retorna (valor anterior, valor actual).
         '''
         old_matrix, new_matrix = self.get_matrices()
         neighbours = self.live_neighbors(old_matrix, x, y)
         cell_is_alive = old_matrix[y][x] == 1
         new_matrix[y][x] = self.apply_rules(neighbours, cell_is_alive)
-        return (old_matrix[y][x],new_matrix[y][x])
+        return old_matrix[y][x], new_matrix[y][x]
 
     def get_matrices(self):
         '''

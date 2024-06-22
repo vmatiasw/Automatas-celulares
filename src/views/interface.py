@@ -18,7 +18,7 @@ class GameInterface:
         for row in range(self.game.matrix_y):
             for col in range(self.game.matrix_x):
                 old_value, new_value = self.game.put_cell(col, row)
-                if new_value != old_value:
+                if old_value != new_value:
                     if new_value == 1:
                         color = self.lifeColor
                     else:
