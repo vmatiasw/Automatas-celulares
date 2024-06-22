@@ -5,8 +5,8 @@ from configs.settings import MATRIX_X, MATRIX_Y
 class GameOfLife:
     def __init__(self, seed=None):
         self.generation_number = 0
-        self.even_gen_matrix = np.zeros((MATRIX_Y, MATRIX_X))
-        self.odd_gen_matrix = np.zeros((MATRIX_Y, MATRIX_X))
+        self.even_gen_matrix = None
+        self.odd_gen_matrix = None
         self.matrix_x = MATRIX_X
         self.matrix_y = MATRIX_Y
         self.seed = np.random.randint(1, 1000) if seed is None else seed
