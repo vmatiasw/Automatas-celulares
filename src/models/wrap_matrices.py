@@ -1,6 +1,11 @@
 import numpy as np
 from configs.settings import MATRIX_X, MATRIX_Y
 
+'''
+IDEA:
+Separar la logica de las matrices de la logica del juego de la vida.
+'''
+
 class NewMatrix:
     def __init__(self, matrix_x, matrix_y, seed=None):
         self.seed = np.random.randint(1, 1000) if seed is None else seed
