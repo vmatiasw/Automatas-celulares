@@ -1,5 +1,5 @@
 import pygame
-from configs.settings import SCREEN_X, SCREEN_Y, LIFE, DEATH
+from configs.settings import SCREEN_X, SCREEN_Y, LIFE, DEATH, SEED
 from models.game_of_life import GameOfLife
 class GameInterface:
     def __init__(self):
@@ -9,7 +9,7 @@ class GameInterface:
         self.screen_x = SCREEN_X
         pygame.display.set_caption('Juego de la Vida')
         self.clock = pygame.time.Clock()
-        self.game = GameOfLife()
+        self.game = GameOfLife(SEED)
         self.lifeColor = LIFE
         self.deathColor = DEATH
         self.cell_size = SCREEN_X // self.game.matrix_x

@@ -6,7 +6,7 @@ TODO:
     - [] Paralelizar
 
 IDEAS:
-    - [] Crear clases para los objetos del juego
+    - [x] Crear clases para los objetos del juego
     - [] Input de usuario para configurar el juego
 
 ## Mas Notas e ideas
