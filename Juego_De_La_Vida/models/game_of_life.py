@@ -2,19 +2,27 @@ import numpy as np
 from configs.settings import MATRIX_X, MATRIX_Y
 
 class GameOfLife:
-    def __init__(self):
+    def __init__(self, seed=np.random.randint(1, 1000)):
         self.generation_number = 0
         self.even_gen_matrix = np.zeros((MATRIX_Y, MATRIX_X))
         self.odd_gen_matrix = np.zeros((MATRIX_Y, MATRIX_X))
         self.matrix_x = MATRIX_X
         self.matrix_y = MATRIX_Y
+        self.seed = seed
+        print(f"Seed: {seed}")
         self.initialize_matrices()
 
-    def initialize_matrices(self):
-        for row in range(self.matrix_y):
-            for col in range(self.matrix_x):
-                self.even_gen_matrix[row][col] = np.random.randint(0, 2)
-                self.odd_gen_matrix[row][col] = 0
+    def initialize_matrices(self, seed=None):
+        '''
+        Inicializa las matrices de la generación par e impar.
+        La matriz de la generación par se inicializa con ceros.
+        La matriz de la generación impar se inicializa con valores aleatorios segun la semilla establecida.
+        '''
+        self.odd_gen_matrix = np.zeros(
+            (self.matrix_y, self.matrix_x), dtype=int)
+        np.random.seed(seed)
+        self.even_gen_matrix = np.random.randint(
+            0, 2, size=(self.matrix_y, self.matrix_x))
 
     def live_neighbors(self, matrix, x, y):
         count = 0
