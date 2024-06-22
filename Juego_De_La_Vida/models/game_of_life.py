@@ -33,9 +33,9 @@ class GameOfLife:
         rows, cols = matrix.shape
         neughbors_rows = (np.arange(y-1, y+2) % rows)[:, None]
         neughbors_cols = np.arange(x-1, x+2) % cols
-        vecindario = matrix[neughbors_rows, neughbors_cols]
-        vecindario[1, 1] = 0
-        return np.sum(vecindario)
+        neighborhood = matrix[neughbors_rows, neughbors_cols]
+        neighborhood[1, 1] = 0
+        return np.sum(neighborhood)
 
     def put_cell(self, x, y):
         old_matrix, new_matrix = self.get_matrices()
