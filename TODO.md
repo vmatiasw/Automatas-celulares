@@ -1,13 +1,14 @@
 # TODO
 
 TODO:
-    - [x] dividir en carpetas por ejemplo los controladores, las vistas y los modelos
-    - [] Como hacer para que el usuario cargue la configuración inicial?
-    - [] Paralelizar
+
+- [] Separar la logica de matrices de la del juego en models
+- [] Como hacer para que el usuario cargue la configuración inicial?
+- [] Input de usuario para configurar el juego
 
 IDEAS:
-    - [x] Crear clases para los objetos del juego
-    - [] Input de usuario para configurar el juego
+
+- []
 
 ## Mas Notas e ideas
 
