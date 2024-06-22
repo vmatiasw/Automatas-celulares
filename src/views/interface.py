@@ -17,11 +17,13 @@ class GameInterface:
     def put_board(self):
         for row in range(self.game.matrix_y):
             for col in range(self.game.matrix_x):
-                if self.game.put_cell(row, col) == 1:
-                    color = self.lifeColor
-                else:
-                    color = self.deathColor
-                pygame.draw.rect(self.screen, color, (col * self.cell_size, row * self.cell_size, self.cell_size, self.cell_size))
+                old_value, new_value = self.game.put_cell(col, row)
+                if new_value != old_value:
+                    if new_value == 1:
+                        color = self.lifeColor
+                    else:
+                        color = self.deathColor
+                    pygame.draw.rect(self.screen, color, (col * self.cell_size, row * self.cell_size, self.cell_size, self.cell_size))
 
     def update_display(self, speed):
         self.put_board()
