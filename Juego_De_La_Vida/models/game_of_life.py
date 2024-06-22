@@ -51,7 +51,7 @@ class GameOfLife:
         if (self.generation_number % 2) == 1:
             return self.even_gen_matrix, self.odd_gen_matrix
         else:
-            return self.even_gen_matrix, self.even_gen_matrix
+            return self.odd_gen_matrix, self.even_gen_matrix
 
     def apply_rules(self, neighbors, cell_is_alive):
         if cell_is_alive == 1:
