@@ -3,27 +3,30 @@ from configs.settings import MATRIX_X, MATRIX_Y
 
 
 class GameOfLife:
-    def __init__(self, seed=np.random.randint(1, 1000)):
+    def __init__(self, seed=None):
         self.generation_number = 0
         self.even_gen_matrix = np.zeros((MATRIX_Y, MATRIX_X))
         self.odd_gen_matrix = np.zeros((MATRIX_Y, MATRIX_X))
         self.matrix_x = MATRIX_X
         self.matrix_y = MATRIX_Y
-        self.seed = seed
-        print(f"Seed: {seed}")
-        self.initialize_matrices()
+        self.seed = np.random.randint(1, 1000) if seed is None else seed
+        print(f"Seed: {self.seed}")
+        self.initialize_matrices(self.seed)
 
     def initialize_matrices(self, seed=None):
         '''
         Inicializa las matrices de la generación par e impar.
         La matriz de la generación par se inicializa con ceros.
-        La matriz de la generación impar se inicializa con valores aleatorios segun la semilla establecida.
+        La matriz de la generación impar se inicializa con valores aleatorios segun la semilla del parametro o la predefinida.
         '''
+        if seed is not None:
+            seed = self.seed
         self.odd_gen_matrix = np.zeros(
             (self.matrix_y, self.matrix_x), dtype=int)
         np.random.seed(seed)
         self.even_gen_matrix = np.random.randint(
             0, 2, size=(self.matrix_y, self.matrix_x))
+        print(self.even_gen_matrix)
 
     def live_neighbors(self, matrix, x, y):
         '''
@@ -67,11 +70,13 @@ class GameOfLife:
 
     def next_generation(self):
         self.generation_number += 1
-    
+
     def get_seed(self):
         return self.seed
+
     def set_seed(self, seed):
         self.seed = seed
+
     def restart(self):
         self.initialize_matrices(self.seed)
         self.generation_number = 0
