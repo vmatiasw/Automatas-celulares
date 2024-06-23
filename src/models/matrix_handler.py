@@ -41,7 +41,9 @@ class OldMatrix(WrapMatrix):
         self.seed = np.random.randint(1, 1000) if seed is None else seed
         
         if txtname:
-            self.matrix = np.loadtxt('./data/' + txtname, dtype=int)
+            directory = './models/data/'
+            assert os.path.exists(directory), f"El directorio {directory} no existe"
+            self.matrix = np.loadtxt(directory + txtname, dtype=int)
             self.validate_matrix(self.matrix)
         else:
             np.random.seed(self.seed)
@@ -51,8 +53,7 @@ class OldMatrix(WrapMatrix):
 
     def save_matrix_to_file(self, matrix):
         directory = './models/data/'
-        if not os.path.exists(directory):
-            os.makedirs(directory)
+        assert os.path.exists(directory), f"El directorio {directory} no existe"
         filename = os.path.join(directory, f"{self.seed}.txt")
         np.savetxt(filename, matrix, fmt='%d')
         print(f"Matriz guardada en {filename}")
