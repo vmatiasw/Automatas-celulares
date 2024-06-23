@@ -15,4 +15,9 @@ MATRIX_COLUMNS = 100
 MATRIX_ROWS = MATRIX_COLUMNS
 SEED = 726
 SAVEINTXT = True
-TXTNAME = False
+TXTNAME = False #'explorador.txt'
+
+''' Archivos para cargar en TXTNAME:
+explorador.txt
+todos_ceros.txt
+'''
