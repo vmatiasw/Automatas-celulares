@@ -1,7 +1,8 @@
 import pygame
 import time
-from configs.settings import SCREEN_X, SCREEN_Y, LIFE, DEATH, SEED, MATRIX_COLUMNS, MATRIX_ROWS
+from configs.settings import SCREEN_WIDTH, SCREEN_HEIGHT, LIFE, DEATH, SEED, MATRIX_COLUMNS, MATRIX_ROWS, SPEED
 from models.game_of_life import GameOfLife
+from controllers.game import GameController
 
 global counter
 counter = 0
@@ -9,11 +10,13 @@ counter = 0
 global sumatoria 
 sumatoria = 0
 class GameInterface():
-    def __init__(self, screen):
-        self.screen = screen
+    def __init__(self, interface_object):
+        self.screen = interface_object.screen
+        self.speed = SPEED
         self.clock = pygame.time.Clock()
         self.game = GameOfLife(SEED)
-        self.cell_size = SCREEN_X // MATRIX_COLUMNS
+        self.controller = GameController()
+        self.cell_size = SCREEN_WIDTH // MATRIX_COLUMNS
         
     def put_board(self):
         start = time.time()
@@ -32,11 +35,15 @@ class GameInterface():
         global counter
         counter += 1
 
-    def update_display(self, speed):
+    def update_display(self):
         self.put_board()
         pygame.display.flip() # Actualizar la pantalla
-        self.clock.tick(speed) # Controlar la velocidad de actualización
+        self.clock.tick(self.speed) # Controlar la velocidad de actualización
+        self.game.next_generation()
+    
+    def handle_events(self):
+        self.speed = self.controller.handle_events(self.speed)
 
     def __del__(self):
         if counter > 0:
-            print(f"Tiempo promedio de ejecución: {sumatoria / counter}")
+            print(f"Tiempo promedio de alctualizacion del board: {sumatoria / counter}")
