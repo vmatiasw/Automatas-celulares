@@ -8,8 +8,6 @@ class MenuInterface:
         self.draw_menu()
     
     def draw_menu(self):
-        self.screen.fill(BACKGROUND_COLOR)
-    
         # Dibujar opciones del menú
         fuente = pygame.font.Font(None, 36)
         

@@ -1,5 +1,5 @@
 import pygame
-from configs.settings import SCREEN_WIDTH, SCREEN_HEIGHT
+from configs.settings import SCREEN_WIDTH, SCREEN_HEIGHT, BACKGROUND_COLOR
 from views.game import GameInterface
 from views.menu import MenuInterface
 
@@ -12,17 +12,20 @@ class Interface:
     
     def set_game_interface(self):
         del self.handler
+        self.screen.fill(BACKGROUND_COLOR)
         self.handler = GameInterface(self)
         return self.handler
 
     def set_menu_interface(self):
         del self.handler
+        self.screen.fill(BACKGROUND_COLOR)
         self.handler = MenuInterface(self)
         return self.handler
     
     def set_config_interface(self):
         pass
         # del self.handler
+        # self.screen.fill(BACKGROUND_COLOR)
         # self.handler = ConfigInterface(self.screen)
         # return self.handler
     
