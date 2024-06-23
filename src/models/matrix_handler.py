@@ -7,16 +7,16 @@ class NewMatrix:
         self.new_matrix = np.zeros((MATRIX_ROWS, MATRIX_COLUMNS))
 
     def __getitem__(self, indices):
-        y, x = indices
-        x = x % MATRIX_COLUMNS
-        y = y % MATRIX_ROWS
-        return self.new_matrix[y, x]
+        i, j = indices
+        i = i % MATRIX_COLUMNS
+        j = j % MATRIX_ROWS
+        return self.new_matrix[i, j]
 
     def __setitem__(self, indices, value):
-        y, x = indices
-        x = x % MATRIX_COLUMNS
-        y = y % MATRIX_ROWS
-        self.new_matrix[y, x] = value
+        i, j = indices
+        i = i % MATRIX_COLUMNS
+        j = j % MATRIX_ROWS
+        self.new_matrix[i, j] = value
 
     def put_matrix(self, new_matrix):
         if new_matrix.shape != (MATRIX_ROWS, MATRIX_COLUMNS):
@@ -39,10 +39,10 @@ class OldMatrix:
         self.old_matrix = np.random.randint(0, 2, size=(MATRIX_ROWS, MATRIX_COLUMNS))
 
     def __getitem__(self, indices):
-        y, x = indices
-        x = x % MATRIX_COLUMNS
-        y = y % MATRIX_ROWS
-        return self.old_matrix[y, x]
+        i, j = indices
+        i = i % MATRIX_COLUMNS
+        j = j % MATRIX_ROWS
+        return self.old_matrix[i, j]
 
     def __setitem__(self, indices, value):
         raise ValueError('No se puede modificar old_matrix!')
@@ -56,13 +56,13 @@ class OldMatrix:
     def get_matrix(self):
         return self.old_matrix
 
-    def neighborhood(self, y, x):
+    def neighborhood(self, i, j):
         '''
-        Devuelve el vecindario de la celda (y, x) con sus respectivos valores.
+        Devuelve el vecindario de la celda (i, j) con sus respectivos valores.
         Los vecinos son las 8 celdas adyacentes modulando las coordenadas.
         '''
         rows, cols = self.old_matrix.shape
-        neighbors_rows = (np.arange(y-1, y+2) % rows)[:, None]
-        neighbors_cols = np.arange(x-1, x+2) % cols
+        neighbors_rows = (np.arange(i-1, i+2) % rows)[:, None]
+        neighbors_cols = np.arange(j-1, j+2) % cols
         neighborhood = self.old_matrix[neighbors_rows, neighbors_cols]
         return neighborhood
