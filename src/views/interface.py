@@ -21,7 +21,7 @@ class GameInterface:
         start = time.time()
         for row in range(MATRIX_Y):
             for col in range(MATRIX_X):
-                old_value, new_value = self.game.put_cell(col, row)
+                old_value, new_value = self.game.put_cell(row, col)
                 if old_value != new_value:
                     if new_value == 1:
                         color = LIFE
@@ -41,4 +41,5 @@ class GameInterface:
 
     def __del__(self):
         pygame.quit()
-        print(f"Tiempo promedio de ejecución: {sumatoria / counter}")
+        if counter > 0:
+            print(f"Tiempo promedio de ejecución: {sumatoria / counter}")
