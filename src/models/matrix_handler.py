@@ -1,5 +1,5 @@
 import numpy as np
-from configs.settings import MATRIX_X, MATRIX_Y
+from configs.settings import MATRIX_Y, MATRIX_X
 
 
 class NewMatrix:
@@ -7,13 +7,13 @@ class NewMatrix:
         self.new_matrix = np.zeros((MATRIX_Y, MATRIX_X))
 
     def __getitem__(self, indices):
-        x, y = indices
+        y, x = indices
         x = x % MATRIX_X
         y = y % MATRIX_Y
         return self.new_matrix[y, x]
 
     def __setitem__(self, indices, value):
-        x, y = indices
+        y, x = indices
         x = x % MATRIX_X
         y = y % MATRIX_Y
         self.new_matrix[y, x] = value
@@ -39,7 +39,7 @@ class OldMatrix:
         self.old_matrix = np.random.randint(0, 2, size=(MATRIX_Y, MATRIX_X))
 
     def __getitem__(self, indices):
-        x, y = indices
+        y, x = indices
         x = x % MATRIX_X
         y = y % MATRIX_Y
         return self.old_matrix[y, x]
@@ -56,9 +56,9 @@ class OldMatrix:
     def get_matrix(self):
         return self.old_matrix
 
-    def neighborhood(self, x, y):
+    def neighborhood(self, y, x):
         '''
-        Devuelve el vecindario de la celda (x, y) con sus respectivos valores.
+        Devuelve el vecindario de la celda (y, x) con sus respectivos valores.
         Los vecinos son las 8 celdas adyacentes modulando las coordenadas.
         '''
         rows, cols = self.old_matrix.shape
