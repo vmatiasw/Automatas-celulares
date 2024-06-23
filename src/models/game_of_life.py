@@ -2,8 +2,8 @@ import numpy as np
 from models.matrix_handler import OldMatrix, NewMatrix
 
 class GameOfLife:
-    def __init__(self, seed=None):
-        self.old_matrix = OldMatrix(seed)
+    def __init__(self, seed=None, txtname=False, saveInTxt=False):
+        self.old_matrix = OldMatrix(seed, txtname, saveInTxt)
         self.new_matrix = NewMatrix()
 
     def live_neighbors(self, i, j):

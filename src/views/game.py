@@ -1,6 +1,6 @@
 import pygame
 import time
-from configs.settings import SCREEN_WIDTH, SCREEN_HEIGHT, LIFE, DEATH, SEED, MATRIX_COLUMNS, MATRIX_ROWS, SPEED
+from configs.settings import TXTNAME, SAVEINTXT, SCREEN_WIDTH, SCREEN_HEIGHT, LIFE, DEATH, SEED, MATRIX_COLUMNS, MATRIX_ROWS, SPEED
 from models.game_of_life import GameOfLife
 from controllers.game import GameController
 
@@ -14,7 +14,7 @@ class GameInterface():
         self.screen = interface_object.screen
         self.speed = SPEED
         self.clock = pygame.time.Clock()
-        self.game = GameOfLife(SEED)
+        self.game = GameOfLife(SEED, TXTNAME, SAVEINTXT)
         self.controller = GameController()
         self.cell_size = SCREEN_WIDTH // MATRIX_COLUMNS
         
