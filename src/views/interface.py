@@ -1,5 +1,5 @@
 import pygame
-from configs.settings import SCREEN_X, SCREEN_Y, LIFE, DEATH, SEED, MATRIX_X, MATRIX_Y
+from configs.settings import SCREEN_X, SCREEN_Y, LIFE, DEATH, SEED, MATRIX_COLUMNS, MATRIX_ROWS
 from models.game_of_life import GameOfLife
 import time
 
@@ -15,12 +15,12 @@ class GameInterface:
         pygame.display.set_caption('Juego de la Vida')
         self.clock = pygame.time.Clock()
         self.game = GameOfLife(SEED)
-        self.cell_size = SCREEN_X // MATRIX_X
+        self.cell_size = SCREEN_X // MATRIX_COLUMNS
         
     def put_board(self):
         start = time.time()
-        for row in range(MATRIX_Y):
-            for col in range(MATRIX_X):
+        for row in range(MATRIX_ROWS):
+            for col in range(MATRIX_COLUMNS):
                 old_value, new_value = self.game.put_cell(row, col)
                 if old_value != new_value:
                     if new_value == 1:
@@ -30,7 +30,7 @@ class GameInterface:
                     pygame.draw.rect(self.screen, color, (col * self.cell_size, row * self.cell_size, self.cell_size, self.cell_size))
         end = time.time()
         global sumatoria
-        sumatoria += (end - start) / (MATRIX_X * MATRIX_Y)
+        sumatoria += (end - start) / (MATRIX_COLUMNS * MATRIX_ROWS)
         global counter
         counter += 1
 

@@ -1,25 +1,25 @@
 import numpy as np
-from configs.settings import MATRIX_Y, MATRIX_X
+from configs.settings import MATRIX_ROWS, MATRIX_COLUMNS
 
 
 class NewMatrix:
     def __init__(self):
-        self.new_matrix = np.zeros((MATRIX_Y, MATRIX_X))
+        self.new_matrix = np.zeros((MATRIX_ROWS, MATRIX_COLUMNS))
 
     def __getitem__(self, indices):
         y, x = indices
-        x = x % MATRIX_X
-        y = y % MATRIX_Y
+        x = x % MATRIX_COLUMNS
+        y = y % MATRIX_ROWS
         return self.new_matrix[y, x]
 
     def __setitem__(self, indices, value):
         y, x = indices
-        x = x % MATRIX_X
-        y = y % MATRIX_Y
+        x = x % MATRIX_COLUMNS
+        y = y % MATRIX_ROWS
         self.new_matrix[y, x] = value
 
     def put_matrix(self, new_matrix):
-        if new_matrix.shape != (MATRIX_Y, MATRIX_X):
+        if new_matrix.shape != (MATRIX_ROWS, MATRIX_COLUMNS):
             raise ValueError(
                 "La matriz proporcionada no tiene las dimensiones correctas")
         self.new_matrix = new_matrix
@@ -36,19 +36,19 @@ class OldMatrix:
 
     def initialize(self):
         np.random.seed(self.seed)
-        self.old_matrix = np.random.randint(0, 2, size=(MATRIX_Y, MATRIX_X))
+        self.old_matrix = np.random.randint(0, 2, size=(MATRIX_ROWS, MATRIX_COLUMNS))
 
     def __getitem__(self, indices):
         y, x = indices
-        x = x % MATRIX_X
-        y = y % MATRIX_Y
+        x = x % MATRIX_COLUMNS
+        y = y % MATRIX_ROWS
         return self.old_matrix[y, x]
 
     def __setitem__(self, indices, value):
         raise ValueError('No se puede modificar old_matrix!')
 
     def put_matrix(self, old_matrix):
-        if old_matrix.shape != (MATRIX_Y, MATRIX_X):
+        if old_matrix.shape != (MATRIX_ROWS, MATRIX_COLUMNS):
             raise ValueError(
                 "La matriz proporcionada no tiene las dimensiones correctas")
         self.old_matrix = old_matrix

@@ -6,8 +6,8 @@ class TestLiveNeighbors(unittest.TestCase):
 
     def __init__(self, *args, **kwargs):
         super(TestLiveNeighbors, self).__init__(*args, **kwargs)
-        self.matrix_x = 3
-        self.matrix_y = 3
+        self.MATRIX_COLUMNS = 3
+        self.MATRIX_ROWS = 3
 
     def live_neighbors_1(self, matrix, x, y):
         count = 0
@@ -15,7 +15,7 @@ class TestLiveNeighbors(unittest.TestCase):
             for j in range(-1, 2):
                 if i == 0 and j == 0:
                     continue
-                if matrix[(y + i) % self.matrix_y][(x + j) % self.matrix_x] == 1:
+                if matrix[(y + i) % self.MATRIX_ROWS][(x + j) % self.MATRIX_COLUMNS] == 1:
                     count += 1
         return count
 
