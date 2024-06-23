@@ -6,24 +6,24 @@ class GameOfLife:
         self.old_matrix = OldMatrix(seed)
         self.new_matrix = NewMatrix()
 
-    def live_neighbors(self, y, x):
+    def live_neighbors(self, i, j):
         '''
         Calcula el número de vecinos vivos de una celda.
         Los vecinos son las 8 celdas adyacentes modulando las coordenadas.
         '''
-        neighborhood = self.old_matrix.neighborhood(y, x)
+        neighborhood = self.old_matrix.neighborhood(i, j)
         neighborhood[1, 1] = 0  # Excluye la célula misma
         return np.sum(neighborhood)
 
-    def put_cell(self, y, x):
+    def put_cell(self, i, j):
         '''
         Retorna (valor anterior, valor actual).
         '''
-        neighbours = self.live_neighbors(y, x)
-        cell_is_alive = self.old_matrix[y, x] == 1
+        neighbours = self.live_neighbors(i, j)
+        cell_is_alive = self.old_matrix[i, j] == 1
         new_value = self.apply_rules(neighbours, cell_is_alive)
-        self.new_matrix[y, x] = new_value
-        return self.old_matrix[y, x], self.new_matrix[y, x]
+        self.new_matrix[i, j] = new_value
+        return self.old_matrix[i, j], self.new_matrix[i, j]
 
     def next_generation(self):
         '''
