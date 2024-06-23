@@ -16,6 +16,7 @@ def main():
             game_interface.update_display(SPEED + userSpeed)
     except (KeyboardInterrupt, ExitGame):
         print("Saliendo del juego...")
+        del game_interface
     except Exception as e:
         print(f"Error: {e}")
     finally:
