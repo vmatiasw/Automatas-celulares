@@ -41,4 +41,5 @@ class GameInterface:
 
     def __del__(self):
         pygame.quit()
-        print(f"Tiempo promedio de ejecución: {sumatoria / counter}")
+        if counter > 0:
+            print(f"Tiempo promedio de ejecución: {sumatoria / counter}")

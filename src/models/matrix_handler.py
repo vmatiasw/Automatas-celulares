@@ -1,16 +1,10 @@
 import numpy as np
 from configs.settings import MATRIX_X, MATRIX_Y
 
-'''
-IDEA:
-Separar la lógica de las matrices de la lógica del juego de la vida.
-'''
 
 class NewMatrix:
-    def __init__(self, seed=None):
-        self.seed = np.random.randint(1, 1000) if seed is None else seed
-        self.new_matrix = None
-        self.initialize()
+    def __init__(self):
+        self.new_matrix = np.zeros((MATRIX_Y, MATRIX_X))
 
     def __getitem__(self, indices):
         x, y = indices
@@ -23,20 +17,26 @@ class NewMatrix:
         x = x % MATRIX_X
         y = y % MATRIX_Y
         self.new_matrix[y, x] = value
-    
-    def initialize(self):
-        np.random.seed(self.seed)
-        self.new_matrix = np.random.randint(0, 2, size=(MATRIX_Y, MATRIX_X))
-    
+
     def put_matrix(self, new_matrix):
+        if new_matrix.shape != (MATRIX_Y, MATRIX_X):
+            raise ValueError(
+                "La matriz proporcionada no tiene las dimensiones correctas")
         self.new_matrix = new_matrix
-    
+
     def get_matrix(self):
         return self.new_matrix
 
+
 class OldMatrix:
-    def __init__(self):
-        self.old_matrix = np.zeros((MATRIX_Y, MATRIX_X))
+    def __init__(self, seed=None):
+        self.seed = np.random.randint(1, 1000) if seed is None else seed
+        self.old_matrix = None
+        self.initialize()
+
+    def initialize(self):
+        np.random.seed(self.seed)
+        self.old_matrix = np.random.randint(0, 2, size=(MATRIX_Y, MATRIX_X))
 
     def __getitem__(self, indices):
         x, y = indices
@@ -48,8 +48,11 @@ class OldMatrix:
         raise ValueError('No se puede modificar old_matrix!')
 
     def put_matrix(self, old_matrix):
+        if old_matrix.shape != (MATRIX_Y, MATRIX_X):
+            raise ValueError(
+                "La matriz proporcionada no tiene las dimensiones correctas")
         self.old_matrix = old_matrix
-    
+
     def get_matrix(self):
         return self.old_matrix
 

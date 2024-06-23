@@ -12,8 +12,8 @@ def main():
     try:
         while True:
             userSpeed = handle_event(userSpeed)
-            game_interface.game.next_generation()
             game_interface.update_display(SPEED + userSpeed)
+            game_interface.game.next_generation()
     except (KeyboardInterrupt, ExitGame):
         del game_interface
         print("Saliendo del juego...")

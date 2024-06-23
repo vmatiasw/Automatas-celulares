@@ -3,8 +3,8 @@ from models.matrix_handler import OldMatrix, NewMatrix
 
 class GameOfLife:
     def __init__(self, seed=None):
-        self.old_matrix = OldMatrix()
-        self.new_matrix = NewMatrix(seed)
+        self.old_matrix = OldMatrix(seed)
+        self.new_matrix = NewMatrix()
 
     def live_neighbors(self, x, y):
         '''
@@ -27,7 +27,7 @@ class GameOfLife:
 
     def next_generation(self):
         '''
-        Swapea las matrices new_matrix y old_matrix.
+        Swapea las matrices de los objetos OldMatrix y NewMatrix.
         '''
         aux = self.old_matrix.get_matrix()
         self.old_matrix.put_matrix(self.new_matrix.get_matrix())
