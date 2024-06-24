@@ -1,0 +1,7 @@
+# Juego de la vida
+
+Como se imaginan cree una implementacion del juego de la vida en python.
+
+Si lo quieren probar, pueden directamente ejecutar el main (teniendo todo instalado) y se abrira el juego, una vez abierto apreten 1 ya que no implemente la configuracion. De esta forma podrian ver un ejemplo con una semilla predeterminada.
+
+Para ver otros ejemplos o subir alguno suyo deben modificar las variables globales en el archivo `src/configs/settings.py`. Si desean subir un archivo deben hacerlo en `src/models/data`, el formato es 1 para celdas vivas y 0 para muertas separadas por un espacio y con cuidado de respetar las dimensiones que pusieron en la configuracion.
