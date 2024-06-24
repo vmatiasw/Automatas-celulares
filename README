@@ -1,6 +1,7 @@
 # Juego de la vida
 
-Como se imaginan cree una implementacion del juego de la vida en python.
+Es posible que van muchas cosas en mis demas archivos md que no estan hechas,... basicamente deje este proyecto en pausa terminal. Lo que si hice fue claramente el juego de la vida en python con una estructura de archivos siguiendo la arquitectura MVC y la separacion de la logica de cada abstraccion que aprendi este cuatrimestre en la facultad.
+Digamos que mis objetivos iniciales no fueron los finales.
 
 Si lo quieren probar, pueden directamente ejecutar el main (teniendo todo instalado) y se abrira el juego, una vez abierto apreten 1 ya que no implemente la configuracion. De esta forma podrian ver un ejemplo con una semilla predeterminada.
 
